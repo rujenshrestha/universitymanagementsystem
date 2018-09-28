@@ -16,5 +16,5 @@
 		    <a href="http://localhost:8080/university/student/searchForm">Search Student Record</a>
 		</div>
 	</div>
-	<a class="log-out menu-title" href="#"><i class="fa fa-power-off"></i> Log out</a>
+	<a class="log-out menu-title" href="http://localhost:8080/university/login/logout"><i class="fa fa-power-off"></i> Log out</a>
 </nav>

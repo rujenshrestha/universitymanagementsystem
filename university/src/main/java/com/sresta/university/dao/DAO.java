@@ -9,30 +9,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sresta.university.entity.Student;
+import com.sresta.university.entity.DBObject;
 
 @Component
-public class StudentDAO{
-
+public class DAO {
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	
 	@Transactional
-	public void saveStudent(Student std){
-		System.out.println("saveStudent method called "+std.toString());
+	public void save(DBObject obj){
+		System.out.println("save method called "+obj.toString());
 		
 		Session session = sessionFactory.getCurrentSession();
-		session.save(std);  
+		session.save(obj);  
 		
 		
 	}
 	
-	@Transactional
-	public List<Student> getAllStudents(){
+	/*@Transactional
+	public List<DBObject> getAll(){
 		
 		Session session = sessionFactory.getCurrentSession();
 		Query q = session.createQuery("from Student"); //HQL
-		List<Student> l = (List<Student>)q.list();
+		List<DBObject> l = (List<DBObject>)q.list();
 
 		System.out.println(l);
 		return l;
@@ -88,5 +89,6 @@ public class StudentDAO{
 										+ "where concat(firstName,' ',middleName,' ',lastName) like :name"); 
 		query.setParameter("name",studentName + "%");
 		return query.list();
-	}
+	}*/
+
 }

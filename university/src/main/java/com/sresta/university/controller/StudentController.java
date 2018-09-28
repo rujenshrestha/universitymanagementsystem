@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sresta.university.dao.StudentDAO;
 import com.sresta.university.entity.Student;
 
+
 @Controller
 @RequestMapping("student")
 public class StudentController {
@@ -22,6 +23,10 @@ public class StudentController {
 	StudentDAO sdao;
 	
 	Student std;
+	@RequestMapping(value ={"/",""}, method = RequestMethod.GET )
+	public String studentHome(){
+		return "/WEB-INF/pages/student/studentHome.jsp";
+	}
 	
 	@RequestMapping(value ="/addForm", method = RequestMethod.GET )
 	public String addStudentForm(){
@@ -32,7 +37,7 @@ public class StudentController {
 	@RequestMapping(value ="/add", method = RequestMethod.POST)
 	public String saveStudent(@ModelAttribute("student") Student student){
 		sdao.saveStudent(student);
-		return "/WEB-INF/pages/viewStudent.jsp";
+		return "/WEB-INF/pages/student/viewStudent.jsp";
 	}
 	
 	@RequestMapping("/view")
