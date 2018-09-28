@@ -1,8 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/layouts/header.jsp" />
 
-<p class="greetings">Hello <%=session.getAttribute("name") %></p>
-
 <div class="div-container">
 	<div class="div-subcontainer-top">
 		<a href="http://localhost:8080/university/student/">

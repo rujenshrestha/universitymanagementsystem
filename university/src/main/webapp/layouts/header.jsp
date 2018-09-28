@@ -21,8 +21,13 @@
 	</head>
 	<body>
 		<div class="div-common-head">
-			<div class="div-logo">
-		        <a href="http://localhost:8080/university/home"><img src="<c:url value="/resources/img/icons/logo.png"></c:url>" alt="No logo available"></a>
+			<div class="div-title">
+				<div class="div-logo">
+			        <a href="http://localhost:8080/university/home"><img src="<c:url value="/resources/img/icons/logo.png"></c:url>" alt="No logo available"></a>
+			 	</div>
+			 	<div class="div-user">	
+			 		<%if(session.getAttribute("name") != null){%><p class="greetings">Hello <%=session.getAttribute("name")%></p><%}%>
+			 	</div>
 		 	</div>
 		 	<div class="div-menu">
 		 		<jsp:include page="/layouts/menu.jsp" />
