@@ -7,7 +7,7 @@
 		<title>UMS</title>
 		<link rel="stylesheet" href="<c:url value="/resources/css/mystyle.css"></c:url>">
 		<script src="<c:url value="/resources/js/student_js.js"></c:url>"></script>
-		<link href="https://fonts.googleapis.com/css?family=Cabin|Montserrat" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Cabin|Montserrat|Average+Sans|Bai+Jamjuree" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -23,14 +23,15 @@
 		<div class="div-common-head">
 			<div class="div-title">
 				<div class="div-logo">
-			        <a href="http://localhost:8080/university/home"><img src="<c:url value="/resources/img/icons/logo.png"></c:url>" alt="No logo available"></a>
+			        <a href="http://localhost:8080/university/home"><img class="img-logo" src="<c:url value="/resources/img/icons/logo.png"></c:url>" alt="No logo available"></a>
 			 	</div>
-			 	<div class="div-user">	
-			 		<%if(session.getAttribute("name") != null){%><p class="greetings">Hello <%=session.getAttribute("name")%></p><%}%>
-			 	</div>
+			 	<%-- <div class="div-user">	
+			 		<%if(session.getAttribute("name") != null){%><label class="lbl-user"><%=session.getAttribute("name")%></label><%}%>
+			 	</div> --%>
 		 	</div>
 		 	<div class="div-menu">
 		 		<jsp:include page="/layouts/menu.jsp" />
 		 	</div>
 		</div>
+		<div class="div-main">
 	
