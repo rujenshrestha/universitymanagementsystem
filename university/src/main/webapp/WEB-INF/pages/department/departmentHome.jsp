@@ -9,7 +9,7 @@
 				</a>
 			</div>
 			<div class="div-content">
-				<a href="http://localhost:8080/university/student/view">
+				<a href="http://localhost:8080/university/department/view">
 					<img class="img-content" src="<c:url value="/resources/img/icons/view_all_icon.png"></c:url>" alt="" >
 					<label class="lbl-content">View All Department</label>
 				</a>

@@ -1,5 +1,6 @@
 package com.sresta.university.controller;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class StudentController {
 
 	@RequestMapping(value ="/add", method = RequestMethod.POST)
 	public String saveStudent(@ModelAttribute("student") Student student){
-		sdao.saveStudent(student);
+		sdao.save(student);
 		return "/WEB-INF/pages/student/viewStudent.jsp";
 	}
 	
@@ -48,10 +49,12 @@ public class StudentController {
 	@RequestMapping("/getAll")  
 	@ResponseBody
 	public List<Student> getAllStudents(){
-		List<Student> students = (List<Student>) sdao.getAllStudents();
+		List<Student> students = (List<Student>) sdao.getAll(Student.class);
 		
 		return students; //inbuilt spring library jackson converts into json format
 	}
+	
+	
 	
 	@RequestMapping("/editForm")
 	public ModelAndView updateStudent(@RequestParam("uId") String uId){
@@ -64,19 +67,19 @@ public class StudentController {
 	@RequestMapping("/get")  
 	@ResponseBody
 	public Student getStudent(@RequestParam("var") String var, @RequestParam("value") String value){
-		Student student = (Student) sdao.getStudent(var, value);	
+		Student student = (Student) sdao.get(var, value, Student.class);
 		return student; //inbuilt spring library jackson converts into json format  
 	}
 	
 	@RequestMapping("/edit")
-	public String saveUpdateStudent(@ModelAttribute("student") Student student){
-		sdao.updateStudent(student);
+	public String saveUpdateStudent(@ModelAttribute("student") Student student) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
+		sdao.update(student, "uId", student.getuId());
 		return "/WEB-INF/pages/student/viewStudent.jsp";
 	}
 	
 	@RequestMapping("/delete")
 	public String deleteStudent(@RequestParam("uId") String uId){
-		sdao.deleteStudent(uId);
+		sdao.delete("uId", uId);
 		return "/WEB-INF/pages/student/viewStudent.jsp";
 	}
 	

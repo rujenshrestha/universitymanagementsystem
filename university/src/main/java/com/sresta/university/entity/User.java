@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class User extends DBObject{
 	
 	@Id
 	private int ssn;
@@ -13,6 +13,10 @@ public class User {
 	private String password;
 	private String role;
 	
+	public User(){
+		String[] field = {"Name","Username","Password","Role"};
+		this.setAttr(field);
+	}
 	
 	public int getSsn() {
 		return ssn;

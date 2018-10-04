@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Student{
+public class Student extends DBObject{
 	
 	@Id
 	private String uId;
@@ -13,7 +13,10 @@ public class Student{
 	private String lastName;
 	private String gender;
 	
-	public Student() {}
+	public Student() {
+		String[] field = {"FirstName","MiddleName","LastName","Gender"};
+		this.setAttr(field);
+	}
 	
 	
 	public String getuId() {

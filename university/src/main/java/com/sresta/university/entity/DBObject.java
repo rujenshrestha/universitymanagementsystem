@@ -1,19 +1,14 @@
 package com.sresta.university.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
-@Entity
-public class DBObject {
+public abstract class DBObject {
+	protected String[] attr;
 
-	@Id
-	protected String tblName;
-
-	public String getTblName() {
-		return tblName;
+	public String[] getAttr() {
+		return attr;
 	}
 
-	public void setTblName(String tblName) {
-		this.tblName = tblName;
+	public void setAttr(String[] attr) {
+		this.attr = attr;
 	}
 }

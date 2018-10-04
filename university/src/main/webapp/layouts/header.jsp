@@ -7,6 +7,7 @@
 		<title>UMS</title>
 		<link rel="stylesheet" href="<c:url value="/resources/css/mystyle.css"></c:url>">
 		<script src="<c:url value="/resources/js/student_js.js"></c:url>"></script>
+		<script src="<c:url value="/resources/js/department_js.js"></c:url>"></script>
 		<link href="https://fonts.googleapis.com/css?family=Cabin|Montserrat|Average+Sans|Bai+Jamjuree" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
