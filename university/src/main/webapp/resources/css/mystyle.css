@@ -49,6 +49,7 @@ a{
 .div-title{
 	position: relative;
 }
+
 .div-logo{
   width: 15%;
   display:inline-block;
@@ -89,50 +90,6 @@ a{
 	float: right;
 }
 
-.div-drop-down {
-    position: relative;
-    display: inline-block;
-    padding:0;
-}
-
-.menu-title{
-	font-family: 'Cabin', sans-serif;
-    margin: 0 auto;
-	margin-right: 1vw;
-	color: blue;
-}
-
-.div-menu-items {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 15vw;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-
-.div-menu-items a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-family: 'Cabin', sans-serif;
-  	font-size: 1.2vw;
-}
-
-.div-menu-items a:hover {
-	background-color: #ddd;
-}
-
-
-.div-drop-down:hover .div-menu-items {
-	display: block;
-}
-
-.div-drop-down:hover .menu-title {
-	background-color: #ddd;
-}
-
 .div-user{
 	float: right;
 	position:absolute;
@@ -140,7 +97,6 @@ a{
 	right:0;
 	margin-right: 3vw;
 }
-
 
 .lbl-user{
 	color:blue;
@@ -192,6 +148,18 @@ a{
 	text-decoration: none;
 }
 
+.div-container-item{
+	
+	margin:1vw;
+	display:block;
+	width:20%;
+	height:auto;
+	padding:2vw;
+	text-align: center;
+	border-radius: 1vw;
+  	box-shadow: 0.2vw 0.2vw 0.4vw grey;
+	background:rgb(211,211,211,0.5);
+}
 /*-------------------- FORM CSS BEGIN ----------------------*/
 .div-form{
 	display:inline-block;
@@ -246,6 +214,7 @@ a{
   	background:rgb(173,216,230);
 }
 /*-------------------- FORM CSS END ----------------------*/
+
 
 .no-padding-margin{
   padding: 0;

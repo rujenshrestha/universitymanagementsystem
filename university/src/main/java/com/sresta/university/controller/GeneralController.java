@@ -34,6 +34,11 @@ public class GeneralController {
 		}
 		
 	}   
+	
+	@RequestMapping(value={"/academic"})
+	public String academicHome(){
+			return "/WEB-INF/pages/academic/academicHome.jsp"; 
+	}  
 
 
 }

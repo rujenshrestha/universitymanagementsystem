@@ -23,11 +23,8 @@
 		<div class="div-common-head">
 			<div class="div-title">
 				<div class="div-logo">
-			        <a href="http://localhost:8080/university/home"><img class="img-logo" src="<c:url value="/resources/img/icons/logo.png"></c:url>" alt="No logo available"></a>
+			        <a href="<%=session.getAttribute("hostURL") %>/home"><img class="img-logo" src="<c:url value="/resources/img/icons/logo.png"></c:url>" alt="No logo available"></a>
 			 	</div>
-			 	<%-- <div class="div-user">	
-			 		<%if(session.getAttribute("name") != null){%><label class="lbl-user"><%=session.getAttribute("name")%></label><%}%>
-			 	</div> --%>
 		 	</div>
 		 	<div class="div-menu">
 		 		<jsp:include page="/layouts/menu.jsp" />

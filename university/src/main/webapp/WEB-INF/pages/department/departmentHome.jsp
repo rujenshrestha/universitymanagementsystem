@@ -1,36 +1,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/layouts/header.jsp" />
-
 	<div class="div-container">
-		<div class="div-subcontainer-top">
-			<div class="div-content">
-				<a href="<%=session.getAttribute("hostURL")%>/department/addForm">
-					<img class="img-content" src="<c:url value="/resources/img/icons/add_dept_icon.png"></c:url>" alt="" >
-					<label class="lbl-content">Add Department</label>
-				</a>
-			</div>
-			<div class="div-content">
-				<a href="<%=session.getAttribute("hostURL")%>/department/view">
-					<img class="img-content" src="<c:url value="/resources/img/icons/view_all_icon.png"></c:url>" alt="" >
-					<label class="lbl-content">View All Department</label>
-				</a>
-			</div>
+		<div class="div-container-item">
+			<a href="<%=session.getAttribute("hostURL")%>/department/addForm">
+				<label class="lbl-content"><i class="fa fa-plus" aria-hidden="true"></i> Add Department</label>
+			</a>
 		</div>
-		<div class="div-subcontainer-bottom">
-			<div class="div-content">
-				<a href="http://localhost:8080/university/student/searchForm">
-					<img class="img-content" alt="" src="<c:url value="/resources/img/icons/course_icon.png"></c:url>">
-					<label class="lbl-content">Courses</label>
-				</a>
-			</div>
-			<div class="div-content">
-				<a href="http://localhost:8080/university/student/searchForm">
-					<img class="img-content" alt="" src="<c:url value="/resources/img/icons/faculty_icon.png"></c:url>">
-					<label class="lbl-content">Faculty</label>
-				</a>
-			</div>
+		<div class="div-container-item">
+			<a href="<%=session.getAttribute("hostURL")%>/department/view">
+				<label class="lbl-content"><i class="fa fa-list" aria-hidden="true"></i> View Department</label>
+			</a>
 		</div>
-	
 	</div>
-
 <jsp:include page="/layouts/footer.jsp" />

@@ -10,9 +10,9 @@
 				</a>
 			</div>
 			<div class="div-content">
-				<a href="<%=session.getAttribute("hostURL")%>/department/">
-					<img class="img-content" src="<c:url value="/resources/img/icons/dept_icon.png"></c:url>" alt="" >
-					<label class="lbl-content">Department</label>
+				<a href="<%=session.getAttribute("hostURL")%>/academic/">
+					<img class="img-content" src="<c:url value="/resources/img/icons/academic_icon.png"></c:url>" alt="" >
+					<label class="lbl-content">Academic</label>
 				</a>
 			</div>
 		</div>
