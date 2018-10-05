@@ -3,7 +3,9 @@
 */
 
 function getAllDepartment(){
-	$.getJSON("http://localhost:8080/university/department/getAll", function(data){
+	var hostURL =  document.getElementById("hostURL").value;
+	alert(hostURL);
+	$.getJSON(hostURL+"/department/getAll", function(data){
 		var department_data = '';
 		$.each(data, function(key,value){
 

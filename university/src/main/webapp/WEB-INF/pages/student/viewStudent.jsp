@@ -20,6 +20,5 @@
 <script>
 	$(document).ready(function(){
 		getAllStudent();
-		/* document.getElementById("root_path").innerHTML = "Root URL " + result; */
 	});
 </script>

@@ -4,13 +4,13 @@
 	<div class="div-container">
 		<div class="div-subcontainer-top">
 			<div class="div-content">
-				<a href="http://localhost:8080/university/student/">
+				<a href="<%=session.getAttribute("hostURL")%>/student/">
 					<img class="img-content" src="<c:url value="/resources/img/icons/std_icon.png"></c:url>" alt="" >
 					<label class="lbl-content">Student</label>
 				</a>
 			</div>
 			<div class="div-content">
-				<a href="http://localhost:8080/university/department/">
+				<a href="<%=session.getAttribute("hostURL")%>/department/">
 					<img class="img-content" src="<c:url value="/resources/img/icons/dept_icon.png"></c:url>" alt="" >
 					<label class="lbl-content">Department</label>
 				</a>

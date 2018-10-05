@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
 <html>
 	<head>
 		<title>UMS</title>
 		<link rel="stylesheet" href="<c:url value="/resources/css/mystyle.css"></c:url>">
+		<script src="<c:url value="/resources/js/util_js.js"></c:url>"></script>
 		<script src="<c:url value="/resources/js/student_js.js"></c:url>"></script>
 		<script src="<c:url value="/resources/js/department_js.js"></c:url>"></script>
 		<link href="https://fonts.googleapis.com/css?family=Cabin|Montserrat|Average+Sans|Bai+Jamjuree" rel="stylesheet">
@@ -20,7 +19,7 @@
         
 		<meta></meta>
 	</head>
-	<body>
+	<body onload="hostURL">
 		<div class="div-common-head">
 			<div class="div-title">
 				<div class="div-logo">
@@ -35,4 +34,5 @@
 		 	</div>
 		</div>
 		<div class="div-main">
+		<input type="hidden" id="hostURL" name="hostURL" value="<%=session.getAttribute("hostURL") %>">
 	

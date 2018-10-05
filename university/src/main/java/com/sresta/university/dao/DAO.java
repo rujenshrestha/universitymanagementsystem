@@ -73,14 +73,15 @@ public abstract class DAO {
 	
 	@Transactional
 	public void update(DBObject obj, String var, String value) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
-
+		
+		System.out.println(obj.toString());
 		Session session = sessionFactory.getCurrentSession();
 		String[] fields = obj.getAttr();
 		StringBuilder sql = new StringBuilder();
 		
 		sql.append("update "+this.tblName+" set ");
 		for(String field : fields){
-			sql.append(field+"= :"+field+", ");
+			sql.append(field+" = :"+field+", ");
 		}
 		sql.delete(sql.length()-2, sql.length()-1);
 		sql.append(" where "+var+" = :value");

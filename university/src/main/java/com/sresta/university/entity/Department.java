@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Department extends DBObject{
 
 	@Id
-	private int deptId;  
+	private String deptId;  
 	private String deptName;
 	
 	public Department() {
@@ -15,10 +15,10 @@ public class Department extends DBObject{
 		this.setAttr(field);
 	}
 	
-	public int getDeptId() {
+	public String getDeptId() {
 		return deptId;
 	}
-	public void setDeptId(int deptId) {
+	public void setDeptId(String deptId) {
 		this.deptId = deptId;
 	}
 	public String getDeptName() {

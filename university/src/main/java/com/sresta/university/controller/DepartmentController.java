@@ -42,6 +42,13 @@ public class DepartmentController {
 		return "/WEB-INF/pages/department/viewDepartment.jsp";
 	}
 	
+	@RequestMapping("/get")  
+	@ResponseBody
+	public Department getDepartmentInfo(@RequestParam("var") String var, @RequestParam("value") String value){
+		Department department = (Department) ddao.get(var, value, Department.class);
+		return department;
+	}
+	
 	@RequestMapping("/getAll")  
 	@ResponseBody
 	public List<Department> getAllStudents(){
