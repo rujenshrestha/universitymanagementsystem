@@ -34,6 +34,7 @@ public class LoginController {
 		User user = udao.loginUser(username, password);
 		if(user != null){
 			System.out.println(user.getName());
+			session.setAttribute("userId",user.getUserId());
 			session.setAttribute("ssn", user.getSsn());
 			session.setAttribute("name", user.getName());
 			session.setAttribute("username", user.getUsername());

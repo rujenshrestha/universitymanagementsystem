@@ -24,7 +24,7 @@ public class UserController {
 	
 	@RequestMapping("/getAll")  
 	@ResponseBody
-	public List<User> getAllStudents(){
+	public List<User> getAllUsers(){
 		List<User> users = (List<User>) udao.getAll(User.class);
 		
 		return users;

@@ -7,21 +7,29 @@ import javax.persistence.Id;
 public class User extends DBObject{
 	
 	@Id
-	private int ssn;
+	private String userId;
+	private long ssn;
 	private String name;
 	private String username;
 	private String password;
 	private String role;
 	
 	public User(){
-		String[] field = {"Name","Username","Password","Role"};
+		String[] field = {"Ssn","Name","Username","Password","Role"};
 		this.setAttr(field);
 	}
 	
-	public int getSsn() {
+	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public long getSsn() {
 		return ssn;
 	}
-	public void setSsn(int ssn) {
+	public void setSsn(long ssn) {
 		this.ssn = ssn;
 	}
 	public String getName() {
@@ -48,12 +56,13 @@ public class User extends DBObject{
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
-		return "User [ssn=" + ssn + ", name=" + name + ", username=" + username + ", password=" + password + ", role="
-				+ role + "]";
+		return "User [userId=" + userId + ", ssn=" + ssn + ", name=" + name + ", username=" + username + ", password="
+				+ password + ", role=" + role + "]";
 	}
+
 	
 }

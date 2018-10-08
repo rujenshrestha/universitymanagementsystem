@@ -12,6 +12,8 @@ public class Student extends DBObject{
 	private String middleName;
 	private String lastName;
 	private String gender;
+	private String deptId;
+	private String level;
 	
 	public Student() {
 		String[] field = {"FirstName","MiddleName","LastName","Gender"};
@@ -49,12 +51,27 @@ public class Student extends DBObject{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
-	
+	public String getDeptId() {
+		return deptId;
+	}
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
+	}
+	public String getLevel() {
+		return level;
+	}
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Student [uId=" + uId + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", gender=" + gender + "]";
+				+ lastName + ", gender=" + gender + ", deptId=" + deptId + ", level=" + level + "]";
 	}
+
+
+	
 
 }

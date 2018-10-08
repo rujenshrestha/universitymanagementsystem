@@ -10,7 +10,7 @@
 				</a>
 			</div>
 			<div class="div-content">
-				<a href="http://localhost:8080/university/student/searchForm">
+				<a href="<%=session.getAttribute("hostURL")%>/course">
 					<img class="img-content" alt="" src="<c:url value="/resources/img/icons/course_icon.png"></c:url>">
 					<label class="lbl-content">Courses</label>
 				</a>
@@ -18,13 +18,13 @@
 		</div>
 		<div class="div-subcontainer-bottom">
 			<div class="div-content">
-				<a href="http://localhost:8080/university/student/searchForm">
+				<a href="<%=session.getAttribute("hostURL")%>/faculty">
 					<img class="img-content" alt="" src="<c:url value="/resources/img/icons/faculty_icon.png"></c:url>">
 					<label class="lbl-content">Faculty</label>
 				</a>
 			</div>
 			<div class="div-content">
-				<a href="http://localhost:8080/university/student/searchForm">
+				<a href="<%=session.getAttribute("hostURL")%>/degree">
 					<img class="img-content" alt="" src="<c:url value="/resources/img/icons/degree_icon.png"></c:url>">
 					<label class="lbl-content">Degree</label>
 				</a>
