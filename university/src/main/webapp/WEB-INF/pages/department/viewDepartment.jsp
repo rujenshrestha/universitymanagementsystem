@@ -2,7 +2,7 @@
 
 	<div class="container">
 		<div class="table-responsive">
-			<table class="table table-bordered table-striped" id="tblDepartmentList">
+			<table class="table table-bordered table-striped" id="tblViewDepartment">
 				<tr>
 					<th>Department ID</th>
 					<th>Department Name</th>
@@ -16,6 +16,6 @@
 
 <script>
 	$(document).ready(function(){
-		getAllDepartment();
+		setDepartmentTableView();
 	});
 </script>

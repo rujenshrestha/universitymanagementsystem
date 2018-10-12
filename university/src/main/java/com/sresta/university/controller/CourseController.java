@@ -23,12 +23,12 @@ public class CourseController {
 	CourseDAO cdao;
 	
 	@RequestMapping(value ={"/",""}, method = RequestMethod.GET ) 
-	public String studentHome(){
+	public String courseHome(){
 		return "/WEB-INF/pages/course/courseHome.jsp";
 	}
 	
 	@RequestMapping(value ="/addForm", method = RequestMethod.GET )
-	public String addStudentForm(){
+	public String addCourseForm(){
 		return "/WEB-INF/pages/course/addCourse.jsp";
 	}
 	
@@ -52,7 +52,7 @@ public class CourseController {
 	
 	@RequestMapping("/getAll")  
 	@ResponseBody
-	public List<Course> getAllStudents(){
+	public List<Course> getAllCourses(){
 		List<Course> departments = (List<Course>) cdao.getAll(Course.class);
 		return departments;
 	}

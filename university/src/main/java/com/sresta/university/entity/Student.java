@@ -14,9 +14,10 @@ public class Student extends DBObject{
 	private String gender;
 	private String deptId;
 	private String level;
+	private String degId;
 	
 	public Student() {
-		String[] field = {"FirstName","MiddleName","LastName","Gender"};
+		String[] field = {"FirstName","MiddleName","LastName","Gender","DeptId","Level","DegId"};
 		this.setAttr(field);
 	}
 	
@@ -63,15 +64,19 @@ public class Student extends DBObject{
 	public void setLevel(String level) {
 		this.level = level;
 	}
+	public String getDegId() {
+		return degId;
+	}
+	public void setDegId(String degId) {
+		this.degId = degId;
+	}
 
 
 	@Override
 	public String toString() {
 		return "Student [uId=" + uId + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", gender=" + gender + ", deptId=" + deptId + ", level=" + level + "]";
+				+ lastName + ", gender=" + gender + ", deptId=" + deptId + ", level=" + level + ", degId=" + degId
+				+ "]";
 	}
-
-
-	
 
 }

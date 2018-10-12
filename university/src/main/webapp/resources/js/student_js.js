@@ -1,6 +1,6 @@
 /* #resultRow : Table Row<tr> ID for showing student result
  * #studentName : Input field <input> ID for suggesting student names
- * #tblStudentList : Table ID for listing students
+ * #"tblView" : Table ID for listing students
 */
 
 function getStudentResultRow(key, value){
@@ -45,8 +45,27 @@ function getStudentNameList(name){
 	});
 }
 
-function getAllStudent(){
-	$.getJSON("http://localhost:8080/university/student/getAll", function(data){
+function setStudentTableView(){
+	var hostURL =  document.getElementById("hostURL").value;
+	$.getJSON(hostURL+"/student/getAll", function(data){
+		var student_data = '';
+		$.each(data, function(key,value){
+			
+				student_data += '<tr>';
+				student_data += '<td>'+value["uId"]+'</td>';
+				student_data += '<td>'+value["firstName"]+value["middleName"]+value["lastName"]+'</td>';
+				student_data += '<td>'+value["degName"]+'</td>';
+				student_data += '<td><a href="editForm?uId='+value["uId"]+'" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>&nbsp&nbsp'
+				student_data += '<a href="javascript:deleteStudent(`'+value["uId"]+'`)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>'
+				student_data += '</tr>';
+		});
+		$('#tblViewStudent').append(student_data);
+	});	
+}
+
+function getStudentCourses(uId){
+	var hostURL =  document.getElementById("hostURL").value;
+	$.getJSON(hostURL+"/student/courses", function(data){
 		var student_data = '';
 		$.each(data, function(key,value){
 
@@ -62,6 +81,7 @@ function getAllStudent(){
 		});
 		$('#tblStudentList').append(student_data);
 	});	
+
 }
 
 

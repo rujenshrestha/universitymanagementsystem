@@ -1,5 +1,7 @@
 package com.sresta.university.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +53,18 @@ public class DepartmentController {
 	
 	@RequestMapping("/getAll")  
 	@ResponseBody
-	public List<Department> getAllStudents(){
+	public List<HashMap> getAllStudents(){
 		List<Department> departments = (List<Department>) ddao.getAll(Department.class);
-		return departments;
+		HashMap result;
+		List<HashMap> list = new ArrayList<HashMap>();
+		for(Department dept: departments){
+			
+			result = new HashMap();
+			result.put("deptId", dept.getDeptId());
+			result.put("deptName", dept.getDeptName());
+			list.add(result);
+		}
+		return list;
 	}
 	
 	@RequestMapping("/editForm")

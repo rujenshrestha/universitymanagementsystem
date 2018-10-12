@@ -47,10 +47,31 @@ public abstract class DAO {
 		return l;
 	}
 	
+	@Transactional
+	public <T> List<T> getAllResultFields(Class<T> type, String[] fields){
+		
+		Session session = sessionFactory.getCurrentSession();
+		StringBuilder sql = new StringBuilder();
+		sql.append("select");
+		
+		for(String field : fields){
+			sql.append(" "+field+",");
+		}
+		sql.deleteCharAt(sql.length()-1);
+		sql.append(" from "+this.tblName);
+		System.out.println("SQL:"+sql.toString());
+		Query q = session.createQuery(sql.toString()); //HQL
+		System.out.println("HQL:"+q.getQueryString());
+		List<T> l = q.list();
+		
+		
+		return l;
+	}
+	
 
 	@Transactional
 	public <T> T get(String var, String value, Class<T> type){
-		
+		// Search by primary key or unique key; for returning only one row
 		Session session = sessionFactory.getCurrentSession();
 		Query q = session.createQuery("from "+this.tblName+" WHERE "+var+" =:value");
 		q.setParameter("value", value);
@@ -59,6 +80,18 @@ public abstract class DAO {
 
 		System.out.println(obj.toString());
 		return obj;
+	}
+	
+	@Transactional
+	public <T> List<T> getByField(String var, String value, Class<T> type){
+		// Search by any key; for returning one/more row
+		Session session = sessionFactory.getCurrentSession();
+		Query q = session.createQuery("from "+this.tblName+" WHERE "+var+" =:value");
+		q.setParameter("value", value);
+		System.out.println("HQL:"+q.getQueryString());
+		List<T> l = q.list();
+
+		return l;
 	}
 	
 	@Transactional
@@ -97,5 +130,16 @@ public abstract class DAO {
 		System.out.println("HQL:"+q.getQueryString());
 		
 		int result = q.executeUpdate();  
+	}
+	
+	@Transactional
+	public  String getName(String tblName, String attrName, String var, String value) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
+		
+		Session session = sessionFactory.getCurrentSession();
+		Query q = session.createQuery("select o."+attrName+" from "+tblName+" o where o."+var+" =:value");
+		q.setParameter("value", value);
+		System.out.println("HQL:"+q.getQueryString());
+		String resultValue = (String)q.uniqueResult();
+		return resultValue;
 	}
 }

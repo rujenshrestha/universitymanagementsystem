@@ -1,20 +1,19 @@
 <jsp:include page="/layouts/header.jsp" />
 	<div class="div-form">
 		<form action="edit" method="post">
-			<label for="uId">University ID:</label>
-			<input type="text" id="uId" name="uId" value="<%=request.getAttribute("uId")%>" readonly><br>
-			<label for="firstName">First Name:</label>
-			<input type="text" id="firstName" name="firstName" required><br>
-			<label for="middleName">Middle Name:</label>
-			<input type="text" id="middleName" name="middleName"><br>
-			<label for="lastName">Last Name:</label>
-			<input type="text" id="lastName" name="lastName" required><br>
-			<label for="gender">Gender:</label>
-			<select name="gender" required>
-				<option value="S">-Specify-</option>
-				<option value="M">Male</option>
-				<option value="F">Female</option>
-				<option value="U">I do not wish to disclose</option>
+			<label for="degId">Degree ID:</label>
+			<input type="text" id="degId" name="degId" value="<%=request.getAttribute("degId")%>" readonly><br>
+			<label for="degName">Degree Title:</label>
+			<input type="text" id="degName" name="degName" required><br>
+			<label for="level">Level&nbsp;&nbsp;:</label>
+			<select name="level" id="level" required>
+				<option value="">--Specify--</option>
+				<option value="G">Graduate</option>
+				<option value="U">Undergraduate</option>
+			</select><br>
+			<label for="deptId">Department&nbsp;&nbsp;:</label>
+			<select name="deptId" id="departmentList" required>
+				<option value="">--Specify--</option>
 			</select><br>
 			<button type="submit" >Update</button>
 			<button type="button" id="cancel">Cancel</button>
@@ -25,13 +24,15 @@
 
 <script>
 	$(document).ready(function(){
-		var uId = document.getElementById("uId").value;
-		getEntityFieldValues("uId",uId,"student");
+		var degId = document.getElementById("degId").value;
+		setDegreeFieldValues(degId);
+		getDepartmentDropDownList();
+				
 	});
 	
 	document.getElementById("cancel").addEventListener("click", function () {
 		var hostURL = document.getElementById("hostURL").value;
-		window.location.href = hostURL+"/student/view";
+		window.location.href = hostURL+"/degree/view";
 	});
 </script>
 

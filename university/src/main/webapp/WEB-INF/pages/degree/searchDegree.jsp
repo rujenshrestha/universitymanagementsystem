@@ -1,16 +1,16 @@
 <jsp:include page="/layouts/header.jsp" />
 
 	<form action="" method="post">
-		<label>Search by UID:</label><br>
-		<input type="text" name="uId" id="uId">
-		<button id="btnSearchByUId" type="button">Search</button>
+		<label>Search by Degree ID:</label><br>
+		<input type="text" name="degId" id="degId">
+		<button id="btnSearchBydegId" type="button">Search</button>
 	</form>
 	<hr>
 	
 	<form action="" method="post">
-		<label>Search by Name:</label><br>
-		<input type="text" name="name" id="studentName">
-		<button id="btnSearchByName" type="button">Search</button>
+		<label>Search by Degree Title:</label><br>
+		<input type="text" name="degName" id="degName">
+		<button id="btnSearchBydegName" type="button">Search</button>
 	</form>
 	<hr>
 	
@@ -18,11 +18,10 @@
 		<div class="table-responsive">
 			<table class="table table-bordered table-striped">
 				<tr>
-					<th>UID</th>
-					<th>First Name</th>
-					<th>Middle Name</th>
-					<th>Last Name</th>
-					<th>Gender</th>
+					<th>Degree ID</th>
+					<th>Degree Title</th>
+					<th>Level</th>
+					<th>Department</th>
 					<th>Actions</th>
 				</tr>
 				<tr id="resultRow">
@@ -38,22 +37,21 @@
 	
 	$(document).ready(function() {
 		result.style.display = "none";
-		var name = document.getElementById("studentName").value;
-		
-		getStudentNameList(name);
+		var name = document.getElementById("degName").value;
+		getDegreeNameList(name);
 	  });
 	
 	
-	document.getElementById("btnSearchByUId").addEventListener("click", function () {
-		var uId = document.getElementById("uId").value;
-		getStudentResultRow("uId", uId);
+	document.getElementById("btnSearchBydegId").addEventListener("click", function () {
+		var degId = document.getElementById("degId").value;
+		getDegreeResultRow("degId", degId);
 		result.style.display="block";
 		
 	});
 	
-	document.getElementById("btnSearchByName").addEventListener("click", function () {
-		var name = document.getElementById("studentName").value;
-		getStudentResultRow("concat(firstName,' ',middleName,' ',lastName)", name);
+	document.getElementById("btnSearchBydegName").addEventListener("click", function () {
+		var degName = document.getElementById("degName").value;
+		getDegreeResultRow("degName", degName);
 		result.style.display="block";
 	});
 	

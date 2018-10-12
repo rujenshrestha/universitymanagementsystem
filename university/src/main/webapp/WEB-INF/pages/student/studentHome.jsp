@@ -16,6 +16,11 @@
 				<label class="lbl-content"><i class="fa fa-search" aria-hidden="true"></i> Search Student</label>
 			</a>
 		</div>	
+		<div class="div-container-item">
+			<a href="<%=session.getAttribute("hostURL")%>/student/courseForm">
+				<label class="lbl-content"><i class="fa fa-book" aria-hidden="true"></i> Manage Courses</label>
+			</a>
+		</div>
 	</div>
 
 <jsp:include page="/layouts/footer.jsp" />

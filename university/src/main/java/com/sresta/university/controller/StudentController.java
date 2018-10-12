@@ -1,6 +1,8 @@
 package com.sresta.university.controller;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,12 +48,35 @@ public class StudentController {
 		return "/WEB-INF/pages/student/viewStudent.jsp";
 	}
 	
+	@RequestMapping("/courseForm")
+	public String manageCourses(){	
+		return "/WEB-INF/pages/student/manageCourse.jsp";
+	}
+	
 	@RequestMapping("/getAll")  
 	@ResponseBody
-	public List<Student> getAllStudents(){
+	public List<HashMap> getAllStudents() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
+		String[] fields = {"uId","firstName","middleName","lastName","level","degId"};
 		List<Student> students = (List<Student>) sdao.getAll(Student.class);
-		
-		return students; //inbuilt spring library jackson converts into json format
+		HashMap result;
+		List<HashMap> list = new ArrayList<HashMap>();
+		for(Student std : students){
+	
+			result = new HashMap();
+			result.put("uId", std.getuId());
+			result.put("firstName", std.getFirstName());
+			result.put("lastName", std.getLastName());
+			if(std.getMiddleName() == null){
+				result.put("middleName"," ");
+			}else{
+				result.put("middleName"," "+std.getMiddleName()+" ");
+			}
+			result.put("level", std.getLevel());
+			result.put("degId", std.getDegId());
+			result.put("degName", sdao.getName("Degree", "degName", "degId", std.getDegId()));
+			list.add(result);
+		}
+		return list;
 	}
 	
 	
@@ -93,6 +118,15 @@ public class StudentController {
 		List<String> studentList =  sdao.getStudentByName(studentName);
 		return studentList;
 	}
+	
+	@RequestMapping("/courses")  
+	@ResponseBody
+	public List<Student> getStudentCourses(){
+		List<Student> students = (List<Student>) sdao.getAll(Student.class);
+		
+		return students; //inbuilt spring library jackson converts into json format
+	}
+	
 	
 }
 

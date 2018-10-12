@@ -1,15 +1,18 @@
 <jsp:include page="/layouts/header.jsp" />
-
-	<label id="root_path"></label>
 	<div class="container">
+	<% System.out.println("var:"+request.getParameter("var")+":var");
+	if(!request.getParameter("var").toString().equals("")){%>
+		<input type="hidden" id="url" value="<%=session.getAttribute("hostURL")+"/degree/getBy?var="+request.getParameter("var")+"&value="+request.getParameter("value") %>">
+	<%}else{%> 
+		<input type="hidden" id="url" value="<%=session.getAttribute("hostURL")+"/degree/getAll"%>">
+	<%}%>	
 		<div class="table-responsive">
-			<table class="table table-bordered table-striped" id="tblStudentList">
+			<table class="table table-bordered table-striped" id="tblViewDegree">
 				<tr>
-					<th>UID</th>
-					<th>First Name</th>
-					<th>Middle Name</th>
-					<th>Last Name</th>
-					<th>Gender</th>
+					<th>Degree ID</th>
+					<th>Degree Title</th>
+					<th>Level</th>
+					<th>Department</th>
 					<th>Actions</th>
 				</tr>
 			</table>
@@ -19,6 +22,7 @@
 
 <script>
 	$(document).ready(function(){
-		getAllStudent();
+		var url = document.getElementById("url").value;
+		setDegreeTableView(url);
 	});
 </script>
