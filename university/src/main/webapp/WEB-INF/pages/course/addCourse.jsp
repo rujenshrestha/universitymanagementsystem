@@ -12,7 +12,7 @@
 			<option value="U">Undergraduate</option>
 		</select><br>
 		<label for="deptId">Department&nbsp;&nbsp;:</label>
-		<select name="deptId" id="departmentList" required>
+		<select name="deptId" id="departmentList" required onchange="getDegreeDropDownList()">
 			<option value="S">-Specify-</option>
 		</select><br>
 		<label for="degId">Degree&nbsp;&nbsp;:</label>
@@ -24,3 +24,9 @@
 	</form>
 </div>	
 <jsp:include page="/layouts/footer.jsp" />
+
+<script>
+	$(document).ready(function(){
+		getDepartmentDropDownList();
+	});
+</script>

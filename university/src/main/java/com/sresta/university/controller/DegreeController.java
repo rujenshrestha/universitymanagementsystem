@@ -37,7 +37,7 @@ public class DegreeController {
 	@RequestMapping(value ="/add", method = RequestMethod.POST)
 	public String saveDegree(@ModelAttribute("degree") Degree degree){
 		ddao.save(degree);
-		return "/WEB-INF/pages/degree/viewDegree.jsp";
+		return "/WEB-INF/pages/degree/viewDegree.jsp?var=&value=";
 	}
 	
 	@RequestMapping("/view")
@@ -76,10 +76,11 @@ public class DegreeController {
 			result = new HashMap();
 			result.put("degId", deg.getDegId());
 			result.put("degName", deg.getDegName());
+			result.put("level",deg.getLevel());
 			if(deg.getLevel().equals("G")){
-				result.put("level","Graduate");
+				result.put("levelDesc","Graduate");
 			}else if(deg.getLevel().equals("U")){
-				result.put("level","Undergraduate");
+				result.put("levelDesc","Undergraduate");
 			}
 			result.put("deptId", deg.getDeptId());
 			result.put("deptName", ddao.getName("Department","deptName","deptId", deg.getDeptId()));
@@ -101,10 +102,11 @@ public class DegreeController {
 			result = new HashMap();
 			result.put("degId", deg.getDegId());
 			result.put("degName", deg.getDegName());
+			result.put("level", deg.getLevel());
 			if(deg.getLevel().equals("G")){
-				result.put("level","Graduate");
+				result.put("levelDesc","Graduate");
 			}else if(deg.getLevel().equals("U")){
-				result.put("level","Undergraduate");
+				result.put("levelDesc","Undergraduate");
 			}
 			result.put("deptId", deg.getDeptId());
 			result.put("deptName", ddao.getName("Department","deptName","deptId", deg.getDeptId()));

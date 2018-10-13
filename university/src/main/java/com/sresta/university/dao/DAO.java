@@ -142,4 +142,15 @@ public abstract class DAO {
 		String resultValue = (String)q.uniqueResult();
 		return resultValue;
 	}
+	
+	@Transactional
+	public List<String> getEntityByName(String var, String value){
+		
+		Session session = sessionFactory.getCurrentSession();
+		
+		Query query = session.createQuery("select "+var+" as name from "+this.tblName+ 
+										  " where "+var+" like :name"); 
+		query.setParameter("name",value + "%");
+		return query.list();
+	}
 }

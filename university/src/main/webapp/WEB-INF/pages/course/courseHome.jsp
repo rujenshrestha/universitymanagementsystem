@@ -7,7 +7,7 @@
 			</a>
 		</div>
 		<div class="div-container-item">
-			<a href="<%=session.getAttribute("hostURL")%>/course/view">
+			<a href="<%=session.getAttribute("hostURL")%>/course/view?var=&value=">
 				<label class="lbl-content"><i class="fa fa-list" aria-hidden="true"></i> View Course</label>
 			</a>
 		</div>

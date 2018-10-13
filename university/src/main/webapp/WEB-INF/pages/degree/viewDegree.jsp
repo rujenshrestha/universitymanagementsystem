@@ -13,6 +13,7 @@
 					<th>Degree Title</th>
 					<th>Level</th>
 					<th>Department</th>
+					<th>View</th>
 					<th>Actions</th>
 				</tr>
 			</table>

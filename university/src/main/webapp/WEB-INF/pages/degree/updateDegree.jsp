@@ -1,13 +1,12 @@
 <jsp:include page="/layouts/header.jsp" />
 	<div class="div-form">
 		<form action="edit" method="post">
-			<label for="degId">Degree ID:</label>
+			<label for="degId">University ID:</label>
 			<input type="text" id="degId" name="degId" value="<%=request.getAttribute("degId")%>" readonly><br>
 			<label for="degName">Degree Title:</label>
 			<input type="text" id="degName" name="degName" required><br>
 			<label for="level">Level&nbsp;&nbsp;:</label>
 			<select name="level" id="level" required>
-				<option value="">--Specify--</option>
 				<option value="G">Graduate</option>
 				<option value="U">Undergraduate</option>
 			</select><br>
@@ -32,7 +31,7 @@
 	
 	document.getElementById("cancel").addEventListener("click", function () {
 		var hostURL = document.getElementById("hostURL").value;
-		window.location.href = hostURL+"/degree/view";
+		window.location.href = hostURL+"/degree/view?var=&value=";
 	});
 </script>
 
