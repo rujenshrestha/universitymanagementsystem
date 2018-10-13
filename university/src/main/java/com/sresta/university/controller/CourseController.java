@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sresta.university.dao.CourseDAO;
 import com.sresta.university.entity.Course;
+import com.sresta.university.entity.Degree;
 
 
 @Controller
@@ -127,6 +128,13 @@ public class CourseController {
 		mv.addObject("crseId",crseId);
 		return mv;
 	}
+	
+	@RequestMapping("/edit")
+	public String saveUpdateCourse(@ModelAttribute("course") Course course) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
+		cdao.update(course, "crseId", course.getCrseId());
+		return "/WEB-INF/pages/course/viewCourse.jsp?var=&value=";
+	}
+	
 	
 	@RequestMapping("/delete")
 	public String deleteCourse(@RequestParam("crseId") String crseId){

@@ -31,7 +31,6 @@
 		var crseId = document.getElementById("crseId").value;
 		setCourseFieldValues(crseId);
 		getDepartmentDropDownList();
-		getDegreeDropDownList();
 	});
 	
 	document.getElementById("cancel").addEventListener("click", function () {

@@ -126,13 +126,13 @@ public class DegreeController {
 	@RequestMapping("/edit")
 	public String saveUpdateDegree(@ModelAttribute("degree") Degree degree) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
 		ddao.update(degree, "degId", degree.getDegId());
-		return "/WEB-INF/pages/degree/viewDegree.jsp";
+		return "/WEB-INF/pages/degree/viewDegree.jsp?var=&value=";
 	}
 	
 	@RequestMapping("/delete")
 	public String deleteDegree(@RequestParam("degId") String degId){
 		ddao.delete("degId", degId);
-		return "/WEB-INF/pages/degree/viewDegree.jsp";
+		return "/WEB-INF/pages/degree/viewDegree.jsp?var=&value=";
 	}
 	
 	@RequestMapping("/searchForm")
