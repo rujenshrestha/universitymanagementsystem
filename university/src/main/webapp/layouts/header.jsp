@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="<c:url value="/resources/css/mystyle.css"></c:url>">
 		<script src="<c:url value="/resources/js/util_js.js"></c:url>"></script>
 		<script src="<c:url value="/resources/js/degree_js.js"></c:url>"></script>
-		<script src="<c:url value="/resources/js/faculty_js.js"></c:url>"></script>
 		<script src="<c:url value="/resources/js/course_js.js"></c:url>"></script>
 		<script src="<c:url value="/resources/js/student_js.js"></c:url>"></script>
 		<script src="<c:url value="/resources/js/department_js.js"></c:url>"></script>

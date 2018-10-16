@@ -89,11 +89,43 @@ public class StudentController {
 	}
 
 	
-	@RequestMapping("/get")  
+	/*@RequestMapping("/get")  
 	@ResponseBody
 	public Student getStudent(@RequestParam("var") String var, @RequestParam("value") String value){
 		Student student = (Student) sdao.get(var, value, Student.class);
 		return student; //inbuilt spring library jackson converts into json format  
+	}*/
+	
+	@RequestMapping("/get")  
+	@ResponseBody
+	public HashMap getCourseInfo(@RequestParam("var") String var, @RequestParam("value") String value) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
+		Student student = (Student) sdao.get(var, value, Student.class);
+		HashMap result = new HashMap();
+		if(student != null){
+			result.put("uId", student.getuId());
+			result.put("firstName", student.getFirstName());
+			result.put("middleName",student.getMiddleName());
+			result.put("lastName",student.getLastName());
+			result.put("gender",student.getGender());
+			if(student.getGender().equals("M")){
+				result.put("genderDesc","Male");
+			}else if(student.getGender().equals("F")){
+				result.put("genderDesc","Female");
+			}else if(student.getGender().equals("U")){
+				result.put("genderDesc","I do not wish to disclose");
+			}
+			result.put("level", student.getLevel());
+			if(student.getLevel().equals("G")){
+				result.put("levelDesc","Graduate");
+			}else if(student.getLevel().equals("U")){
+				result.put("levelDesc","Undergraduate");
+			}
+			result.put("degId", student.getDegId());
+			result.put("degName", sdao.getName("Degree","degName","degId", student.getDegId()));
+			result.put("deptId", student.getDeptId());
+			result.put("deptName", sdao.getName("Department","deptName","deptId", student.getDeptId()));
+		}
+		return result;
 	}
 	
 	@RequestMapping("/edit")

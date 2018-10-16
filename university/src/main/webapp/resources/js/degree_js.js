@@ -70,12 +70,14 @@ function getDegreeResultRow(key, value){
 
 function getDegreeDropDownList(){
 	var deptId= document.getElementById("departmentList").value;
+	var level= document.getElementById("level").value;
 	var hostURL =  document.getElementById("hostURL").value;
 	$.getJSON(hostURL+"/degree/getBy?var=deptId&value="+deptId, function(data){
 		var option_data = '';
 		$.each(data, function(key,value){
-
-			option_data += '<option value='+value.degId+'>'+value.degName+'</option>';
+			if(value.level == level){
+				option_data += '<option value='+value.degId+'>'+value.degName+'</option>';
+			}	
 		});
 		if(option_data == ''){
 			option_data += '<option value="N">No Degree Found</option>';
@@ -84,3 +86,7 @@ function getDegreeDropDownList(){
 	});	
 
 } 
+
+function setDegreeBlank(){
+	document.getElementById("degreeList").value='';
+}

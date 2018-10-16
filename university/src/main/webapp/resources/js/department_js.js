@@ -12,9 +12,7 @@ function setDepartmentTableView(){
 			department_data += '<tr>';
 			department_data += '<td>'+value["deptId"]+'</td>';
 			department_data += '<td>'+value["deptName"]+'</td>';
-			department_data += '<td><a href="'+hostURL+'/degree/view?var=deptId&value='+value["deptId"]+'"><i class="fa fa-graduation-cap" aria-hidden="true"></i> View Degrees </a>';
-			/*department_data += '<a href="#"><i class="fa fa-book" aria-hidden="true"></i> View Courses </a>';*/
-			department_data += '<a href="#"><i class="fa fa-users" aria-hidden="true"></i> View Faculty </a></td>';
+			department_data += '<td><a href="'+hostURL+'/degree/view?var=deptId&value='+value["deptId"]+'"><i class="fa fa-graduation-cap" aria-hidden="true"></i> View Degrees </a></td>';
 			department_data += '<td><a href="editForm?deptId='+value["deptId"]+'" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>&nbsp&nbsp'
 			department_data += '<a href="javascript:deleteDepartment(`'+value["deptId"]+'`)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>'
 			department_data += '</tr>';

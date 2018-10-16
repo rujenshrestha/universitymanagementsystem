@@ -20,13 +20,26 @@ function getStudentResultRow(key, value){
 	}
 
 
-function getStudentInputField(key, value){
-	
-	$.getJSON("http://localhost:8080/university/student/get?var="+key+"&value="+value, function(data){
-		document.getElementById("firstName").value = data.firstName;
-		document.getElementById("middleName").value = data.middleName;
-		document.getElementById("lastName").value = data.lastName;
-		document.getElementById("gender").value = data.gender;
+function setStudentFieldValues(value){
+	var hostURL =  document.getElementById("hostURL").value;
+	$.getJSON(hostURL+"/student/get?var=uId&value="+value, function(data){
+		
+		document.getElementById("uId").value = data["uId"];
+		document.getElementById("firstName").value = data["firstName"];
+		document.getElementById("middleName").value = data["middleName"];
+		document.getElementById("lastName").value = data["lastName"];
+		var oldGender= document.getElementById("gender").options[0];
+		oldGender.value =   data["gender"];
+		oldGender.text =  data["genderDesc"];
+		var oldLevel= document.getElementById("level").options[0];
+		oldLevel.value =   data["level"];
+		oldLevel.text =  data["levelDesc"];
+		var oldDept= document.getElementById("departmentList").options[0];
+		oldDept.value =  data["deptId"];
+		oldDept.text = data["deptName"];
+		var oldDegree= document.getElementById("degreeList").options[0];
+		oldDegree.value =  data["degId"];
+		oldDegree.text = data["degName"];
 	});	
 }
 
